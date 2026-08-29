@@ -95,6 +95,19 @@
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && backdrop.classList.contains("is-open")) close();
     });
+
+    // Backredirect: primeiro toque no botão "voltar" do navegador abre o
+    // mesmo pop-up em vez de sair da página. Só uma vez por visita — no
+    // segundo "voltar" o usuário sai normalmente.
+    var backRedirectArmed = true;
+    history.pushState({ upsellGuard: true }, "", location.href);
+    window.addEventListener("popstate", function () {
+      if (backRedirectArmed && !backdrop.classList.contains("is-open")) {
+        backRedirectArmed = false;
+        open();
+        history.pushState({ upsellGuard: true }, "", location.href);
+      }
+    });
   }
 
   document.addEventListener("DOMContentLoaded", function () {
