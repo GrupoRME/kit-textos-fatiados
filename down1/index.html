@@ -65,11 +65,12 @@
                 <p class="up-price-box">Por apenas: <strong>R$ 17,90</strong></p>
             </div>
             <div class="up-card">
-                <a id="up-accept" href="#" class="up-accept">
+                <a id="up-accept" href="#" payt_action="oneclick_buy" data-object="4N88YO-47ZQWG" class="up-accept">
                     <svg class="icon" viewBox="0 0 24 24"><use href="#icon-zap"></use></svg>
                     Quero aproveitar
                 </a>
-                <a href="../down2/" class="up-decline">Não, obrigado</a>
+                <select payt_element="installment" data-object="4N88YO-47ZQWG" style="display:none"></select>
+                <a href="../up2/" class="up-decline">Não, obrigado</a>
             </div>
         </div>
     </main>
@@ -100,6 +101,7 @@
             }, 1000);
         })();
     </script>
+    <script type="text/javascript" src="https://checkout.payt.com.br/multiple-oneclickbuyscript/LJXW3R.js"></script>
 </body>
 
 </html>
